@@ -1,3 +1,11 @@
+# app.id must be the same as the App Id configured in the config service, and must NOT start with '0'
+# Long polling (nacos and Rocket MQ also use it):
+# http request will hang at the config server side for 60 seconds and if there's any config changes, the
+# server will inform the client, and the client will update itself and hang the request again at the server.
+# If the waiting time is over 60s, the server will response a 304 code, which makes the client establish a
+# new connection again, and start another 60 second period.
+
+# Upload a jar file to another host and run: java -Denv=dev  -jar ./apollo-demo-0.0.1-SNAPSHOT.jar to test the grayscale release
 app:
   id: mall-1001
 
@@ -9,5 +17,8 @@ apollo:
   meta: http://192.168.1.17:8080
   bootstrap:
     enabled: true
-    namespaces: application
+    namespaces: application,TEST1.Redis
+  accesskey:
+    secret:
+      6823918f5bab40aaab8e72ff2f2182ab
 #apollo.accesskey.secret=80882e6ffc524b9e8bc65664fbf95dfb

@@ -1,0 +1,6 @@
+app.id=001
+spring.application.name=provider
+apollo.meta=http://192.168.1.17:8080
+apollo.bootstrap.enabled=true
+apollo.bootstrap.namespaces=application
+#apollo.accesskey.secret=80882e6ffc524b9e8bc65664fbf95dfb

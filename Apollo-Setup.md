@@ -21,7 +21,15 @@ Apollo needs the MySQL DB to store the data of config and portal, so you must ha
 7. `java -jar apollo-configservice-1.8.1.jar`
 8. Verify the above service has started: [http://192.168.1.17:8080](http://192.168.1.17:8080/)
 9. Repeat 6 and 7 for `apollo-adminservice-1/config/application-github.properties`
-10. Repeat 6 and 7 for `apollo-portal-1/config/application-github.properties` but the DB name in the MtSQL url must be `ApolloPortalDB`
+10. Repeat 6 and 7 for `apollo-portal-1/config/application-github.properties` but the DB name in the MySQL url must be `ApolloPortalDB` :
+
+    ```java
+    # DataSource
+    spring.datasource.url = jdbc:mysql://192.168.1.102:3306/ApolloPortalDB?characterEncoding=utf8
+    spring.datasource.username = FillInCorrectUser
+    spring.datasource.password = FillInCorrectPassword
+    ```
+
 11. Modify the `apollo-portal-1/config/apollo-env.properties` 
 
     ```java
